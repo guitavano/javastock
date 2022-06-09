@@ -6,7 +6,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -50,9 +50,9 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="59" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jToggleButton2" min="-2" pref="540" max="-2" attributes="0"/>
-                      <Component id="jToggleButton3" min="-2" pref="540" max="-2" attributes="0"/>
-                      <Component id="jToggleButton1" min="-2" pref="540" max="-2" attributes="0"/>
+                      <Component id="btnVendas" min="-2" pref="540" max="-2" attributes="0"/>
+                      <Component id="btnClientes" min="-2" pref="540" max="-2" attributes="0"/>
+                      <Component id="btnProdutos" min="-2" pref="540" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               </Group>
@@ -67,11 +67,11 @@
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                  <Component id="jToggleButton1" min="-2" pref="62" max="-2" attributes="0"/>
+                  <Component id="btnProdutos" min="-2" pref="62" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="jToggleButton3" min="-2" pref="62" max="-2" attributes="0"/>
+                  <Component id="btnClientes" min="-2" pref="62" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                  <Component id="jToggleButton2" min="-2" pref="62" max="-2" attributes="0"/>
+                  <Component id="btnVendas" min="-2" pref="62" max="-2" attributes="0"/>
                   <EmptySpace pref="48" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -95,7 +95,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+        <Component class="javax.swing.JToggleButton" name="btnProdutos">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="33" red="0" type="rgb"/>
@@ -109,10 +109,10 @@
             <Property name="text" type="java.lang.String" value="Relat&#xf3;rio de Produtos"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProdutosActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton2">
+        <Component class="javax.swing.JToggleButton" name="btnVendas">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="33" red="0" type="rgb"/>
@@ -125,8 +125,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Relat&#xf3;rio de Vendas"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVendasActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton3">
+        <Component class="javax.swing.JToggleButton" name="btnClientes">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="33" red="0" type="rgb"/>
@@ -139,6 +142,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Relat&#xf3;rio de Clientes"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClientesActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>

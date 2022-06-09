@@ -1,18 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package javastock.telas;
 
-/**
- *
- * @author aluno
- */
-public class Vendas extends javax.swing.JFrame {
+import javastock.conexoes.DBConnection;
+import javax.swing.JOptionPane;
 
-    /**
-     * Creates new form Menu
-     */
+
+public class Vendas extends javax.swing.JFrame {
+    
+        DBConnection conectar = new DBConnection();
+    
     public Vendas() {
         initComponents();
     }
@@ -86,6 +82,11 @@ public class Vendas extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(51, 204, 0));
         jButton4.setText("Registrar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -169,6 +170,7 @@ public class Vendas extends javax.swing.JFrame {
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 703, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -189,9 +191,50 @@ public class Vendas extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        cadastrarEstoque();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    public void cadastrarEstoque(){
+        this.conectar.conectaBanco();
+        
+        try {    
+            String valorVenda = inputValorVenda.getText();
+            String precoCusto = inputPrecoCusto.getText();
+            String precoComissao = inputPrecoComissao.getText();
+            String fretePago = inputFretePago.getText();
+            
+            this.conectar.cadastra("INSERT INTO vendas ("
+                    + "valorVenda,"
+                    + "valorCusto,"
+                    + "valorComissao,"
+                    + "valorFretePago"
+                + ") VALUES ("
+                    + "'" + valorVenda + "',"
+                    + "'" + precoCusto + "',"
+                    + "'" + precoComissao + "',"
+                    + "'" + fretePago + "'"
+                + ");");
+            
+        } catch (Exception e) {
+            
+            System.out.println("Erro ao registrar venda " +  e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao registrar venda");
+            
+        } finally{            
+            this.conectar.fechaBanco();
+            JOptionPane.showMessageDialog(null, "Venda registrada com sucesso");
+            limparCampos();
+        }
+    }
+    
+    public void limparCampos(){
+        inputValorVenda.setText("");
+        inputPrecoCusto.setText("");
+        inputPrecoComissao.setText("");
+        inputFretePago.setText("");
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -232,6 +232,7 @@ public class Estoque extends javax.swing.JFrame {
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 703, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -301,8 +302,8 @@ public class Estoque extends javax.swing.JFrame {
 
         } catch (Exception e) {    
 
-            System.out.println("Erro ao consultar cliente " +  e.getMessage());
-            JOptionPane.showMessageDialog(null, "Erro ao buscar dados do perfil");
+            System.out.println("Erro ao consultar produtos " +  e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao buscar dados de produtos");
 
         }finally{
             this.conectar.fechaBanco();  
@@ -332,7 +333,6 @@ public class Estoque extends javax.swing.JFrame {
         } finally{            
             this.conectar.fechaBanco();
             JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso");
-            //novoCliente.limpaCliente();
             limparCampos();
             atualizaEstoqueNaTela();
         }
